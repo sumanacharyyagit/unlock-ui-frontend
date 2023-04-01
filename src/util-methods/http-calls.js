@@ -1,18 +1,22 @@
 import { getToken } from "./getToken";
 
 const { token } = getToken();
+// unlock-ui-backend-production.up.railway.app
 
 export const submitUserInformations = (payload) => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/information/create", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...payload }),
-    })
+    fetch(
+      "unlock-ui-backend-production.up.railway.app/api/v1/information/create",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...payload }),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error Request");
@@ -26,14 +30,17 @@ export const submitUserInformations = (payload) => {
 
 export const getUserInformation = () => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/information/get", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "unlock-ui-backend-production.up.railway.app/api/v1/information/get",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error Request");
@@ -47,7 +54,8 @@ export const getUserInformation = () => {
 
 export const signUserData = (payload) => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/user/create", {
+    // fetch("http://localhost:8080/api/v1/user/create", {
+    fetch("https://unlock-ui-backend-production.up.railway.app/api/v1/user/create", {
       method: "POST",
       headers: {
         Authentication: `Bearer ${token}`,
@@ -75,7 +83,7 @@ export const signUserData = (payload) => {
 
 export const getUserData = (payload) => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/user/get", {
+    fetch("unlock-ui-backend-production.up.railway.app/api/v1/user/get", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -96,14 +104,17 @@ export const getUserData = (payload) => {
 
 export const getAllUserData = (payload) => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/admin/user/get/all", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "unlock-ui-backend-production.up.railway.app/api/v1/admin/user/get/all",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error Request");
@@ -117,14 +128,17 @@ export const getAllUserData = (payload) => {
 
 export const getUserDataById = (id, payload) => {
   return new Promise((resolve, reject) => {
-    fetch(`http://localhost:8080/api/v1/admin/user/get/:${id}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `unlock-ui-backend-production.up.railway.app/api/v1/admin/user/get/:${id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error Request");
@@ -138,7 +152,7 @@ export const getUserDataById = (id, payload) => {
 
 export const logoutUser = (id, payload) => {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:8080/api/v1/user/logout", {
+    fetch("unlock-ui-backend-production.up.railway.app/api/v1/user/logout", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
